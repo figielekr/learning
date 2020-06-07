@@ -4,6 +4,8 @@ public class lesson3 {
         airCraft cessna172 = new airCraft(4,140,56.5,9.5);
         airCraft piperSaratoga = new airCraft(6,201,102.5,20.5);
         double time = 3.5;
+        piperSaratoga.setPassengers(5);
+        cessna172.setPassengers(1);
 
         System.out.println();
         System.out.println("Ilosc miejsc Piper Saratoga: " + piperSaratoga.passengers + ".");
@@ -29,7 +31,7 @@ public class lesson3 {
 
     }
     static class airCraft {
-        int passengers;       //number of passenegers
+        private int passengers;       //number of passenegers
         int cruiseSpeed;        //mph
         double fuelCapacity;    //galons
         double fuelConsumption;      //gallons per hour
@@ -46,6 +48,15 @@ public class lesson3 {
         }
         double fuelNeededInLiters(double time) {
             return fuelConsumption*time*3.78541178;
+        }
+        void setPassengers (int p){
+            if (p>0 && p<=10){
+                passengers = p;
+                System.out.println("The number of passengers has been actualized to " + p + ".");
+            }
+            else {
+                System.out.println("Error setting passengers.");
+            }
         }
     }
 }
