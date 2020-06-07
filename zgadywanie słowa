@@ -1,0 +1,39 @@
+import java.util.Random;
+import java.util.Scanner;
+
+public class game {
+    public static void main(String[] args) {
+        String[] words = {"zegar", "krzesło","taboret","samochód", "Haker","rower","komputer","trawa","kobieta","kominek","zabawa","materac"};
+        Random random = new Random();
+        //System.out.println(word);
+        Scanner scanner = new Scanner(System.in);
+        String response;
+        char randomChar;
+        int fails = 0, rounds=0;
+        while(fails<=3){
+            rounds++;
+            System.out.println("Round "+rounds+"!");
+            String word = words[random.nextInt(words.length)];                  //wyszukuje losowy wyraz
+            String hashWord = word;                                             // nowy String o tej samej wartości
+            for(int i = 0; i<rounds ; i+=3){
+                do {
+                    randomChar = hashWord.charAt(random.nextInt(hashWord.length()));            //randomChar - wyszukuje nową literę w nowym Stringu
+                } while (randomChar=='*');
+                hashWord = hashWord.replaceFirst(String.valueOf(randomChar), "*");      //konwertuje literę i zastępuje w nowym Stringu
+
+            }
+            System.out.println(hashWord);
+            System.out.println("Please, give an answer: ");
+            response = scanner.nextLine();
+            if (word.equalsIgnoreCase(response)){                                   //sprawdza czy słowa się zgadzają z pominięciem dużych liter
+                System.out.println("Congratulations!");
+                //break;
+                //fails = 4;
+            }
+            else {
+                fails++;
+                System.out.println("Wrong! The number of incorrect answers: "+fails);
+            }
+        }
+    }
+}
