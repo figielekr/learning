@@ -1,25 +1,18 @@
 public class lesson3 {
     public static void main(String[] args) {
 
-        airCraft cessna172 = new airCraft();
-        airCraft piperSaratoga = new airCraft();
-        cessna172.passengers = 4;
-        cessna172.cruiseSpeed = 140;
-        cessna172.fuelCapacity =  56.5;
-        cessna172.fuelConsumption = 9.5;
+        airCraft cessna172 = new airCraft(4,140,56.5,9.5);
+        airCraft piperSaratoga = new airCraft(6,201,102.5,20.5);
+        double time = 3.5;
 
-        piperSaratoga.passengers = 6;
-        piperSaratoga.cruiseSpeed = 201;
-        piperSaratoga.fuelCapacity =  102.5;
-        piperSaratoga.fuelConsumption = 20.5;
         System.out.println();
         System.out.println("Ilosc miejsc Piper Saratoga: " + piperSaratoga.passengers + ".");
         System.out.println("Predkosc przelotowa: " + piperSaratoga.cruiseSpeed + " mph.");
         System.out.println("Pojemnosc zbiornikow paliwa: " + piperSaratoga.fuelCapacity + " galons.");
         System.out.println("Srednie spalanie: " + piperSaratoga.fuelConsumption + " galons.");
         System.out.println("Zasieg lotu w godzinach: " + piperSaratoga.calculateEndurance() + ".");
-        System.out.println("Paliwo potrzebne na 4,5 godziny lotu to: " + piperSaratoga.fuelNeeded(4.5) + " galonow.");
-        System.out.println("Paliwo potrzebne na 4,5 godziny lotu to: " + piperSaratoga.fuelNeededInLiters(4.5) + " litrow.");
+        System.out.println("Paliwo potrzebne na "+time+" godziny lotu to: " + piperSaratoga.fuelNeeded(time) + " galonow.");
+        System.out.println("Paliwo potrzebne na "+time+" godziny lotu to: " + piperSaratoga.fuelNeededInLiters(time) + " litrow.");
         System.out.println();
 
         System.out.println("Ilosc miejsc Piper Saratoga: " + cessna172.passengers + ".");
@@ -27,8 +20,8 @@ public class lesson3 {
         System.out.println("Pojemnosc zbiornikow paliwa: " + cessna172.fuelCapacity + " galons.");
         System.out.println("Srednie spalanie: " + cessna172.fuelConsumption + " galons.");
         System.out.println("Zasieg lotu w godzinach: " + cessna172.calculateEndurance() + ".");
-        System.out.println("Paliwo potrzebne na 4,5 godziny lotu to: " + cessna172.fuelNeeded(4.5) + " galonow.");
-        System.out.println("Paliwo potrzebne na 4,5 godziny lotu to: " + cessna172.fuelNeededInLiters(4.5) + " litrow.");
+        System.out.println("Paliwo potrzebne na "+time+" godziny lotu to: " + cessna172.fuelNeeded(time) + " galonow.");
+        System.out.println("Paliwo potrzebne na "+time+" godziny lotu to: " + cessna172.fuelNeededInLiters(time) + " litrow.");
         System.out.println();
 
         cessna172.calculateEndurance();
