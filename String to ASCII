@@ -1,0 +1,28 @@
+import java.util.ArrayList;
+
+public class ascii {
+    public static void main(String[] args) {
+
+        String[] krzeslo = {"noga", "oparcie","samochód","łabędź","łóżko","lekkoatletyka","interpunkcja","telekomunikacja","metamorfoza","zwierzchnictwo","prześladowanie","antyterrorysta","dźwiękonaśladownictwo","antykoncepcja","kolorowanka"};
+        ArrayList<Integer> ascii = new ArrayList<>();
+
+        for(int i =0; i<krzeslo.length; i++){
+            char temp = '"';
+            ascii.add((int) temp);
+            for(int j =0; j<krzeslo[i].length(); j++) {
+                temp = krzeslo[i].charAt(j);
+                ascii.add((int) temp);
+            }
+            temp = '"';
+            ascii.add((int) temp);
+            temp = ',';
+            ascii.add((int) temp);
+        }
+        //for(int i =0; i<krzeslo.length; i++) {
+            for (int j = 0; j <ascii.size()-1; j++) {
+                int x = ascii.get(j);
+                System.out.print((char) x); //ASCII System.out.print( x);
+            }
+       // }
+    }
+}
