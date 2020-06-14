@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class ascii {
+public class euler {
     public static void main(String[] args) {
 
         String[] krzeslo = {"noga", "oparcie","samochód","łabędź","łóżko","lekkoatletyka","interpunkcja","telekomunikacja","metamorfoza","zwierzchnictwo","prześladowanie","antyterrorysta","dźwiękonaśladownictwo","antykoncepcja","kolorowanka"};
@@ -21,7 +21,17 @@ public class ascii {
         //for(int i =0; i<krzeslo.length; i++) {
             for (int j = 0; j <ascii.size()-1; j++) {
                 int x = ascii.get(j);
-                System.out.print((char) x); //ASCII System.out.print( x);
+                if ((x==44)){
+                    System.out.print((char)x);
+                }
+                else if (x==34){
+                    System.out.print((char)x);
+                }
+                else {
+                    //int x = ascii.get(j);
+                    System.out.print(x); //ASCII System.out.print( x);
+                }
+                //System.out.println("\""+x+"\"");
             }
        // }
     }
