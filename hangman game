@@ -1,0 +1,53 @@
+import java.util.Random;
+import java.util.Scanner;
+
+public class euler {
+    public static void main(String[] args) {
+        String[] words = {"krzesło","trawa","samochód"};
+        Random random = new Random();
+        int howMany=0;
+        String response;
+        String original = words[random.nextInt(words.length)];
+        String x = TemporaryWord(original);
+        boolean loop = false;
+        for(;;){
+            howMany++;
+            System.out.println(x);
+            System.out.println("Próba nr: "+ howMany+". Pozostało prób: "+(x.length()-howMany));
+            System.out.println("Podaj literę:");
+            response = scanner();
+            for (int i = 0; i<x.length(); i++){
+                char randomChar = original.charAt(i);
+                if (response.equals(String.valueOf(randomChar))){
+                    /*StringBuilder x2 = new StringBuilder(x);
+                    x2.setCharAt(i, response.charAt(0));*/
+                    String x2 = x;
+                    char[] x2Chars = x2.toCharArray();
+                    x2Chars[i] = response.charAt(0);
+                    x = String.valueOf(x2Chars);
+                }
+            }
+            if (x.equalsIgnoreCase(original)){
+                loop=true;
+            }
+        } //while(loop);
+
+
+    }
+
+    private static String TemporaryWord(String RandomWord) {
+        for (int i=0;i<RandomWord.length();i++){
+            char RandomChar = RandomWord.charAt(i);
+            RandomWord = RandomWord.replaceFirst(String.valueOf(RandomChar),"-");
+        }
+        return RandomWord;
+    }
+
+    private static String scanner(){
+        Scanner scanner = new Scanner(System.in);
+        return scanner.nextLine();
+    }
+    //private static String replaceLetter(String response, String original, String x){
+    //}
+
+}
