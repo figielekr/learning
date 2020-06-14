@@ -5,17 +5,23 @@ public class euler {
     public static void main(String[] args) {
         String[] words = {"krzesło","trawa","samochód"};
         Random random = new Random();
-        int howMany=0;
+        int howMany=0, fails=0, possibleFails=7;
         String response;
         String original = words[random.nextInt(words.length)];
         String x = TemporaryWord(original);
-        boolean loop = false;
-        for(;;){
+        boolean loop = true;
+        boolean fail;
+        while(loop){
             howMany++;
+            fail = true;
             System.out.println(x);
-            System.out.println("Próba nr: "+ howMany+". Pozostało prób: "+(x.length()-howMany));
+            System.out.println("Próba nr: "+ howMany+". Możliwych błędów: "+(possibleFails-fails));
             System.out.println("Podaj literę:");
             response = scanner();
+            if (response.equalsIgnoreCase(original)){
+                System.out.println("Gratulacje!");
+                break;
+            }
             for (int i = 0; i<x.length(); i++){
                 char randomChar = original.charAt(i);
                 if (response.equals(String.valueOf(randomChar))){
@@ -25,14 +31,17 @@ public class euler {
                     char[] x2Chars = x2.toCharArray();
                     x2Chars[i] = response.charAt(0);
                     x = String.valueOf(x2Chars);
+                    fail = false;
                 }
             }
-            if (x.equalsIgnoreCase(original)){
-                loop=true;
+            if (fail){
+                fails++;
             }
-        } //while(loop);
-
-
+            if (x.equalsIgnoreCase(original)){
+                System.out.println("Gratulacje!");
+                loop=false;
+            }
+        }
     }
 
     private static String TemporaryWord(String RandomWord) {
