@@ -12,6 +12,8 @@ public class euler {
             for(int j =0; j<krzeslo[i].length(); j++) {
                 temp = krzeslo[i].charAt(j);
                 ascii.add((int) temp);
+                temp = ',';
+                ascii.add((int) temp);
             }
             temp = '"';
             ascii.add((int) temp);
