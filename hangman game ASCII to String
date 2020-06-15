@@ -9,15 +9,14 @@ public class euler {
         String response;
         //for(int i=0; i<wordss.length;i++) {
             //for (int j=0; j<wordss[i].length; j++) {
-                String original = (toString(wordss[random.nextInt(wordss.length)]));
-                //System.out.println("\n"+wordss[1].length);
+                String original = (toString(wordss[random.nextInt(wordss.length)]));                        //pobiera losowy wyraz z char [][] wordss i odsyła do metody toString w celu 
+                //System.out.println("\n"+wordss[1].length);                                                //przekonwertowania na String
             //}
             //System.out.println(" ");
         //}
-        String[] words = {"nfssn","baadf"};
         //String original = words[random.nextInt(words.length)];
-        String x = TemporaryWord(original);
-        boolean loop = true;
+        String x = TemporaryWord(original);                                                                 //tworzy zmienna x, ktora sklada sie z ilosci znakow rownej 
+        boolean loop = true;                                                                                //original, ale skladajacej sie z "-"
         boolean fail;
         while(loop){
             howMany++;
@@ -74,4 +73,5 @@ public class euler {
     }
     //private static String replaceLetter(String response, String original, String x){
     //}
+
 }
