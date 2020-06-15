@@ -1,0 +1,77 @@
+import java.util.Random;
+import java.util.Scanner;
+
+public class euler {
+    public static void main(String[] args) {
+        char [][] wordss = {{110,111,103,97,},{111,112,97,114,99,105,101,},{115,97,109,111,99,104,243,100,},{322,97,98,281,100,378,},{322,243,380,107,111,},{108,101,107,107,111,97,116,108,101,116,121,107,97,},{105,110,116,101,114,112,117,110,107,99,106,97,},{116,101,108,101,107,111,109,117,110,105,107,97,99,106,97,},{109,101,116,97,109,111,114,102,111,122,97,},{122,119,105,101,114,122,99,104,110,105,99,116,119,111,},{112,114,122,101,347,108,97,100,111,119,97,110,105,101,},{97,110,116,121,116,101,114,114,111,114,121,115,116,97,},{100,378,119,105,281,107,111,110,97,347,108,97,100,111,119,110,105,99,116,119,111,},{97,110,116,121,107,111,110,99,101,112,99,106,97,},{107,111,108,111,114,111,119,97,110,107,97,}};
+        Random random = new Random();
+        int howMany=0, fails=0, possibleFails=7;
+        String response;
+        //for(int i=0; i<wordss.length;i++) {
+            //for (int j=0; j<wordss[i].length; j++) {
+                String original = (toString(wordss[random.nextInt(wordss.length)]));
+                //System.out.println("\n"+wordss[1].length);
+            //}
+            //System.out.println(" ");
+        //}
+        String[] words = {"nfssn","baadf"};
+        //String original = words[random.nextInt(words.length)];
+        String x = TemporaryWord(original);
+        boolean loop = true;
+        boolean fail;
+        while(loop){
+            howMany++;
+            fail = true;
+            System.out.println(x);
+            System.out.println("Próba nr: "+ howMany+". Możliwych błędów: "+(possibleFails-fails));
+            System.out.println("Podaj literę:");
+            response = scanner();
+            if (response.equalsIgnoreCase(original)){
+                System.out.println("Gratulacje!");
+                break;
+            }
+            for (int i = 0; i<x.length(); i++){
+                char randomChar = original.charAt(i);
+                if (response.equals(String.valueOf(randomChar))){
+                    /*StringBuilder x2 = new StringBuilder(x);
+                    x2.setCharAt(i, response.charAt(0));*/
+                    String x2 = x;
+                    char[] x2Chars = x2.toCharArray();
+                    x2Chars[i] = response.charAt(0);
+                    x = String.valueOf(x2Chars);
+                    fail = false;
+                }
+            }
+            if (fail){
+                fails++;
+            }
+            if (x.equalsIgnoreCase(original)){
+                System.out.println("Gratulacje!");
+                loop=false;
+            }
+        }
+    }
+
+    private static String TemporaryWord(String RandomWord) {
+        for (int i=0;i<RandomWord.length();i++){
+            char RandomChar = RandomWord.charAt(i);
+            RandomWord = RandomWord.replaceFirst(String.valueOf(RandomChar),"-");
+        }
+        return RandomWord;
+    }
+
+    private static String scanner(){
+        Scanner scanner = new Scanner(System.in);
+        return scanner.nextLine();
+    }
+    private static String toString(char[] a){
+        //String original="";
+        //for (int i=0;i<a;i++){
+         //   original = Character.toString(a);
+        //}
+        //System.out.println(original);
+        return String.valueOf(a);
+    }
+    //private static String replaceLetter(String response, String original, String x){
+    //}
+}
