@@ -10,7 +10,7 @@ public class lotto {
             System.out.print(types[j] + " ");
         }*/
         while (!szostka) {
-            int[] b = {1,2,3,4,5,6}; //generator(howManyTypes,howManyNumbers);
+            int[] b = generator(howManyTypes,howManyNumbers);
             int[] a = generator(howManyTypes,howManyNumbers);
             proba++;
             hits=0;
@@ -18,7 +18,7 @@ public class lotto {
                 for (int j = 0; j < b.length; j++) {
                     if (a[i] == b[j]) hits++;
                 }
-                //if (hits==0 && x==5) {break;}
+                if (hits==0 && x==5) {break;}
             }
             if (x<hits) {nextHit = true; x=hits;
                 System.out.println();}
