@@ -2,13 +2,15 @@ import java.util.Random;
 
 public class lotto {
     public static void main(String[] args) {
-        int howManyNumbers=49, howManyTypes = 6, hits=0, proba=0, x=0;
+        long start = System.currentTimeMillis();
+
+        int howManyNumbers=49, howManyTypes = 6, hits=0, x=0; long proba=0;
         boolean szostka = false, nextHit = false;
         /*for (int j : types) {
             System.out.print(types[j] + " ");
         }*/
         while (!szostka) {
-            int[] b = generator(howManyTypes,howManyNumbers);
+            int[] b = {1,2,3,4,5,6}; //generator(howManyTypes,howManyNumbers);
             int[] a = generator(howManyTypes,howManyNumbers);
             proba++;
             hits=0;
@@ -16,6 +18,7 @@ public class lotto {
                 for (int j = 0; j < b.length; j++) {
                     if (a[i] == b[j]) hits++;
                 }
+                //if (hits==0 && x==5) {break;}
             }
             if (x<hits) {nextHit = true; x=hits;
                 System.out.println();}
@@ -34,6 +37,11 @@ public class lotto {
                 if (hits >= 6) szostka = true;
             }
         }
+        long finish = System.currentTimeMillis();
+        System.out.println("Zadanie wykonane w " + (finish - start) + " milisec");
+        long time = proba /(finish-start);
+        System.out.println("Wykonanych symulacji na milisekundę:"+ time);
+
     }
     public static int[] generator (int howManyTypes, int howManyNumbers){
         int[] types = new int[howManyTypes];
