@@ -1,0 +1,54 @@
+import java.util.Random;
+
+public class lotto {
+    public static void main(String[] args) {
+        int howManyNumbers=49, howManyTypes = 6, hits=0, proba=0;
+        boolean szostka = false;
+        /*for (int j : types) {
+            System.out.print(types[j] + " ");
+        }*/
+        while (!szostka) {
+            int[] b = generator(howManyTypes,howManyNumbers);
+            int[] a = generator(howManyTypes,howManyNumbers);
+            proba++;
+            hits=0;
+            for (int i = 0; i < a.length; i++) {
+                for (int j = 0; j < b.length; j++) {
+                    if (a[i] == b[j]) hits++;
+                }
+            }
+            if (hits>=6) {
+                System.out.println(hits);
+                for (int i = 0; i < a.length; i++) {
+                    System.out.print(b[i] + " ");
+                }
+                System.out.println();
+                for (int i = 0; i < a.length; i++) {
+                    System.out.print(a[i] + " ");
+                }
+                System.out.println();
+                System.out.println(proba);
+                szostka = true;
+            }
+        }
+    }
+    public static int[] generator (int howManyTypes, int howManyNumbers){
+        int[] types = new int[howManyTypes];
+        Random random = new Random();
+        int xif; boolean wasUsed;
+        for (int i =0; i<howManyTypes; i++){
+            wasUsed = true;
+            xif = random.nextInt(howManyNumbers)+1;
+            for (int j =0; j<howManyTypes; j++){
+                if (xif == types[j]) {
+                    if (i!=0) i--;
+                    wasUsed = false;
+                }
+            }
+            if (wasUsed){
+                types[i]=xif;
+            }
+        }
+        return types;
+    }
+}
