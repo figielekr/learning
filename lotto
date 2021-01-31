@@ -10,7 +10,7 @@ public class lotto {
             System.out.print(types[j] + " ");
         }*/
         while (!szostka) {
-            int[] b = generator(howManyTypes,howManyNumbers);
+            int[] b = generator(howManyTypes,howManyNumbers); // tutaj mozna swoje typy wpisac zamiast "generator..." - np  int[] b = {1,2,3,4,5,6};
             int[] a = generator(howManyTypes,howManyNumbers);
             proba++;
             hits=0;
