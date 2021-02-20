@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Euler 14</title>
+    <script type="text/javascript">
+        function euler(){
+            let a, najwieksza=0, chwilowa=0
+            let n=0
+            for (let i=999_000; i>600_000; i--){
+                n=i;
+                chwilowa=0;
+                while(n!==1){
+                    if (n%2===0){
+                        n=n/2;
+                        chwilowa++;
+                    }
+                    else {
+                        n=n*3+1;
+                        chwilowa++;}
+                    if (chwilowa>najwieksza){
+                        najwieksza=chwilowa;
+                        a=i;
+                    }
+                }
+            }
+            document.getElementById("result").innerHTML = a;
+        }
+    </script>
+    <script type="text/javascript">
+        function getObjectByName (){
+            return document.getElementsByClassName(name);
+        }
+        console.log(getObjectByName("Example"))
+     /*   document.getElementById("objects").innerHTML = ;*/
+    </script>
+</head>
+<body>
+    <button onclick="euler()">Euler 14</button>
+    <div id="result"></div>
+
+
+</body>
+</html>
